@@ -1,10 +1,10 @@
-# 🤖 Binance Futures Trading Bot (Testnet)
+# Binance Futures Trading Bot (Testnet)
 
 A clean, production-quality Python CLI for placing **MARKET**, **LIMIT**, and **STOP_LIMIT** orders on the **Binance USDT-M Futures Testnet**.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 trading_bot/
@@ -21,7 +21,7 @@ trading_bot/
 
 ---
 
-## ⚙️ Setup
+##  Setup
 
 ### 1 — Prerequisites
 
@@ -61,7 +61,7 @@ python cli.py ... --api-key <key> --api-secret <secret>
 
 ---
 
-## 🚀 Running the CLI
+##  Running the CLI
 
 ### MARKET order (buy 0.001 BTC)
 
@@ -98,7 +98,7 @@ python cli.py \
 
 ---
 
-## 📤 Example Output
+##  Example Output
 
 ```
 ──────────────────────────────────────────────────────
@@ -127,7 +127,7 @@ python cli.py \
 
 ---
 
-## 📜 Logs
+##  Logs
 
 All API requests, responses, and errors are written to **`bot.log`** in the working directory (rotating, max 5 MB × 3 backups). Console output only shows warnings and above to keep the CLI clean.
 
@@ -137,7 +137,7 @@ tail -f bot.log   # live log stream
 
 ---
 
-## 🔧 CLI Reference
+##  CLI Reference
 
 | Flag | Required | Description |
 |------|----------|-------------|
@@ -152,7 +152,7 @@ tail -f bot.log   # live log stream
 
 ---
 
-## 📌 Assumptions
+##  Assumptions
 
 1. **Testnet only** — the base URL is hard-coded to `https://testnet.binancefuture.com`. For live trading, change `BASE_URL` in `bot/client.py`.
 2. **USDT-M Futures** — the `/fapi/v1/order` endpoint is used. COIN-M futures use `/dapi/v1/order`.
@@ -164,7 +164,7 @@ tail -f bot.log   # live log stream
 
 ---
 
-## 🏗️ Architecture Overview
+##  Architecture Overview
 
 ```
 cli.py  ──▶  validators.py   (raise ValueError on bad input)
@@ -175,7 +175,7 @@ cli.py  ──▶  validators.py   (raise ValueError on bad input)
 
 ---
 
-## 🛡️ Error Handling
+## Error Handling
 
 | Scenario | Behaviour |
 |----------|-----------|
