@@ -1,28 +1,4 @@
-#!/usr/bin/env python3
-"""
-cli.py
-------
-Command-line entry point for the Binance Futures Trading Bot.
 
-Usage examples:
-    # MARKET buy
-    python cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0.001
-
-    # LIMIT sell
-    python cli.py --symbol ETHUSDT --side SELL --type LIMIT --quantity 0.1 --price 3000
-
-    # STOP-LIMIT buy (bonus)
-    python cli.py --symbol BTCUSDT --side BUY --type STOP_LIMIT \
-                  --quantity 0.001 --price 68000 --stop-price 67500
-
-    # Override API keys inline (not recommended; prefer .env)
-    python cli.py ... --api-key <key> --api-secret <secret>
-
-API keys are resolved in this priority order:
-    1. --api-key / --api-secret CLI flags
-    2. BINANCE_API_KEY / BINANCE_API_SECRET environment variables
-    3. A `.env` file in the working directory (loaded automatically)
-"""
 
 from __future__ import annotations
 
@@ -32,26 +8,26 @@ import sys
 from decimal import Decimal
 from typing import Optional
 
-# Optional: load .env if python-dotenv is installed
+
 try:
     from dotenv import load_dotenv
     load_dotenv()
 except ImportError:
-    pass  # dotenv is optional; keys can come from env or CLI flags
+    pass  
 
 from bot.client import BinanceFuturesClient, BinanceAPIError, BinanceNetworkError
 from bot.logging_config import setup_logging
 from bot.orders import OrderResult, place_order
 from bot.validators import validate_all
 
-# ── Initialise logging before anything else ───────────────────────────────────
+
 setup_logging()
 
 import logging
 logger = logging.getLogger(__name__)
 
 
-# ── Formatting helpers ────────────────────────────────────────────────────────
+
 
 DIVIDER = "─" * 54
 
@@ -105,7 +81,7 @@ def _print_error(msg: str) -> None:
     print(DIVIDER)
 
 
-# ── CLI argument parser ───────────────────────────────────────────────────────
+
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
@@ -126,7 +102,7 @@ Examples:
 """,
     )
 
-    # ── Order parameters ───────────────────────────────────────────────────
+
     order_group = parser.add_argument_group("Order parameters")
     order_group.add_argument(
         "--symbol", "-s",
@@ -173,13 +149,13 @@ Examples:
     return parser
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+
 
 def main() -> None:
     parser = build_parser()
     args = parser.parse_args()
 
-    # ── Resolve API credentials ────────────────────────────────────────────
+   
     api_key    = args.api_key    or os.getenv("BINANCE_API_KEY",    "")
     api_secret = args.api_secret or os.getenv("BINANCE_API_SECRET", "")
 
@@ -192,7 +168,7 @@ def main() -> None:
         logger.error("Missing API credentials — aborting.")
         sys.exit(1)
 
-    # ── Validate inputs ────────────────────────────────────────────────────
+    
     try:
         validated = validate_all(
             symbol=args.symbol,
@@ -207,7 +183,7 @@ def main() -> None:
         logger.error("Validation failed: %s", exc)
         sys.exit(1)
 
-    # ── Print request summary ──────────────────────────────────────────────
+    
     _print_request_summary(
         symbol=validated["symbol"],
         side=validated["side"],
@@ -217,7 +193,7 @@ def main() -> None:
         stop_price=validated["stop_price"],
     )
 
-    # ── Connect and place order ────────────────────────────────────────────
+   
     try:
         with BinanceFuturesClient(api_key=api_key, api_secret=api_secret) as client:
             result = place_order(
