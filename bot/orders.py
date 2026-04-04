@@ -1,16 +1,3 @@
-"""
-orders.py
----------
-Business logic for order placement on Binance Futures.
-
-Each public function:
-  1. Builds the correct parameter dict for Binance's /fapi/v1/order endpoint
-  2. Delegates the HTTP call to BinanceFuturesClient
-  3. Returns a structured OrderResult dataclass
-
-Supported order types: MARKET, LIMIT, STOP_LIMIT (bonus)
-"""
-
 from __future__ import annotations
 
 import logging
@@ -25,7 +12,7 @@ logger = logging.getLogger(__name__)
 ORDER_ENDPOINT = "/fapi/v1/order"
 
 
-# ── Result dataclass ──────────────────────────────────────────────────────────
+
 
 @dataclass
 class OrderResult:
@@ -39,7 +26,7 @@ class OrderResult:
     orig_qty: str
     executed_qty: str
     avg_price: str
-    price: str  # limit price (0 for market)
+    price: str 
     client_order_id: str
     raw: Dict[str, Any] = field(repr=False, default_factory=dict)
 
@@ -60,7 +47,7 @@ class OrderResult:
         )
 
 
-# ── Internal helpers ──────────────────────────────────────────────────────────
+
 
 def _build_base_params(symbol: str, side: str, order_type: str, quantity: Decimal) -> Dict[str, Any]:
     """Return the parameter dict fields common to every order type."""
@@ -85,7 +72,6 @@ def _place_order(client: BinanceFuturesClient, params: Dict[str, Any]) -> OrderR
     return result
 
 
-# ── Public order functions ────────────────────────────────────────────────────
 
 def place_market_order(
     client: BinanceFuturesClient,
@@ -106,7 +92,7 @@ def place_market_order(
         OrderResult with server-assigned orderId, status, executedQty, avgPrice.
     """
     params = _build_base_params(symbol, side, "MARKET", quantity)
-    # MARKET orders must NOT include a price
+  
     return _place_order(client, params)
 
 
@@ -170,7 +156,6 @@ def place_stop_limit_order(
     return _place_order(client, params)
 
 
-# ── Dispatcher ────────────────────────────────────────────────────────────────
 
 def place_order(
     client: BinanceFuturesClient,
