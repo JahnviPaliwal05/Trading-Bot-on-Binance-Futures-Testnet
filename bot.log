@@ -1,0 +1,57 @@
+2026-04-04 01:27:21 | INFO     | bot.logging_config | Logging initialised — file: C:\Users\paliw\Downloads\Primetrade.ai_assignment\trading_bot\bot.log
+2026-04-04 01:27:21 | INFO     | bot.validators | All inputs validated: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': Decimal('0.001'), 'price': None, 'stop_price': None}
+2026-04-04 01:27:21 | INFO     | bot.client | BinanceFuturesClient initialised — base_url=https://testnet.binancefuture.com
+2026-04-04 01:27:21 | INFO     | bot.orders | Placing order — params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001'}
+2026-04-04 01:27:21 | INFO     | bot.client | HTTP POST /fapi/v1/order — attempt 1/3 | params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1775246241990}
+2026-04-04 01:27:22 | INFO     | httpx | HTTP Request: POST https://testnet.binancefuture.com/fapi/v1/order "HTTP/1.1 400 Bad Request"
+2026-04-04 01:27:22 | INFO     | bot.client | HTTP POST /fapi/v1/order — status=400
+2026-04-04 01:27:22 | ERROR    | bot.client | Binance API error — code=-4164 msg=Order's notional must be no smaller than 100 (unless you choose reduce only).
+2026-04-04 01:27:22 | ERROR    | __main__ | BinanceAPIError: code=-4164 msg=Order's notional must be no smaller than 100 (unless you choose reduce only).
+2026-04-04 01:27:57 | INFO     | bot.logging_config | Logging initialised — file: C:\Users\paliw\Downloads\Primetrade.ai_assignment\trading_bot\bot.log
+2026-04-04 01:27:57 | INFO     | bot.validators | All inputs validated: {'symbol': 'ETHUSDT', 'side': 'SELL', 'order_type': 'LIMIT', 'quantity': Decimal('0.1'), 'price': Decimal('3000'), 'stop_price': None}
+2026-04-04 01:27:58 | INFO     | bot.client | BinanceFuturesClient initialised — base_url=https://testnet.binancefuture.com
+2026-04-04 01:27:58 | INFO     | bot.orders | Placing order — params={'symbol': 'ETHUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': '0.1', 'price': '3000', 'timeInForce': 'GTC'}
+2026-04-04 01:27:58 | INFO     | bot.client | HTTP POST /fapi/v1/order — attempt 1/3 | params={'symbol': 'ETHUSDT', 'side': 'SELL', 'type': 'LIMIT', 'quantity': '0.1', 'price': '3000', 'timeInForce': 'GTC', 'timestamp': 1775246278313}
+2026-04-04 01:27:58 | INFO     | httpx | HTTP Request: POST https://testnet.binancefuture.com/fapi/v1/order "HTTP/1.1 200 OK"
+2026-04-04 01:27:58 | INFO     | bot.client | HTTP POST /fapi/v1/order — status=200
+2026-04-04 01:27:58 | INFO     | bot.orders | Order response — {'orderId': 8631131411, 'symbol': 'ETHUSDT', 'status': 'NEW', 'clientOrderId': '0Nn3PkvVEfYD9LWWLjNqR7', 'price': '3000.00', 'avgPrice': '0.00', 'origQty': '0.100', 'executedQty': '0.000', 'cumQty': '0.000', 'cumQuote': '0.00000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1775246279459}
+2026-04-04 01:27:58 | INFO     | bot.orders | Order placed successfully — orderId=8631131411 status=NEW
+2026-04-04 01:28:19 | INFO     | bot.logging_config | Logging initialised — file: C:\Users\paliw\Downloads\Primetrade.ai_assignment\trading_bot\bot.log
+2026-04-04 01:28:34 | INFO     | bot.logging_config | Logging initialised — file: C:\Users\paliw\Downloads\Primetrade.ai_assignment\trading_bot\bot.log
+2026-04-04 01:28:34 | INFO     | bot.validators | All inputs validated: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': Decimal('0.001'), 'price': None, 'stop_price': None}
+2026-04-04 01:28:34 | INFO     | bot.client | BinanceFuturesClient initialised — base_url=https://testnet.binancefuture.com
+2026-04-04 01:28:34 | INFO     | bot.orders | Placing order — params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001'}
+2026-04-04 01:28:34 | INFO     | bot.client | HTTP POST /fapi/v1/order — attempt 1/3 | params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1775246314958}
+2026-04-04 01:28:35 | INFO     | httpx | HTTP Request: POST https://testnet.binancefuture.com/fapi/v1/order "HTTP/1.1 400 Bad Request"
+2026-04-04 01:28:35 | INFO     | bot.client | HTTP POST /fapi/v1/order — status=400
+2026-04-04 01:28:35 | ERROR    | bot.client | Binance API error — code=-4164 msg=Order's notional must be no smaller than 100 (unless you choose reduce only).
+2026-04-04 01:28:35 | ERROR    | __main__ | BinanceAPIError: code=-4164 msg=Order's notional must be no smaller than 100 (unless you choose reduce only).
+2026-04-04 01:29:20 | INFO     | bot.logging_config | Logging initialised — file: C:\Users\paliw\Downloads\Primetrade.ai_assignment\trading_bot\bot.log
+2026-04-04 01:29:30 | INFO     | bot.logging_config | Logging initialised — file: C:\Users\paliw\Downloads\Primetrade.ai_assignment\trading_bot\bot.log
+2026-04-04 01:31:16 | INFO     | bot.logging_config | Logging initialised — file: C:\Users\paliw\Downloads\Primetrade.ai_assignment\trading_bot\bot.log
+2026-04-04 01:31:16 | INFO     | bot.validators | All inputs validated: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'STOP_LIMIT', 'quantity': Decimal('0.001'), 'price': Decimal('68000'), 'stop_price': Decimal('67500')}
+2026-04-04 01:31:17 | INFO     | bot.client | BinanceFuturesClient initialised — base_url=https://testnet.binancefuture.com
+2026-04-04 01:31:17 | INFO     | bot.orders | Placing order — params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'STOP', 'quantity': '0.001', 'price': '68000', 'stopPrice': '67500', 'timeInForce': 'GTC'}
+2026-04-04 01:31:17 | INFO     | bot.client | HTTP POST /fapi/v1/order — attempt 1/3 | params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'STOP', 'quantity': '0.001', 'price': '68000', 'stopPrice': '67500', 'timeInForce': 'GTC', 'timestamp': 1775246477083}
+2026-04-04 01:31:17 | INFO     | httpx | HTTP Request: POST https://testnet.binancefuture.com/fapi/v1/order "HTTP/1.1 400 Bad Request"
+2026-04-04 01:31:17 | INFO     | bot.client | HTTP POST /fapi/v1/order — status=400
+2026-04-04 01:31:17 | ERROR    | bot.client | Binance API error — code=-4120 msg=Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.
+2026-04-04 01:31:17 | ERROR    | __main__ | BinanceAPIError: code=-4120 msg=Order type not supported for this endpoint. Please use the Algo Order API endpoints instead.
+2026-04-04 01:31:55 | INFO     | bot.logging_config | Logging initialised — file: C:\Users\paliw\Downloads\Primetrade.ai_assignment\trading_bot\bot.log
+2026-04-04 01:31:55 | INFO     | bot.validators | All inputs validated: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': Decimal('0.002'), 'price': None, 'stop_price': None}
+2026-04-04 01:31:55 | INFO     | bot.client | BinanceFuturesClient initialised — base_url=https://testnet.binancefuture.com
+2026-04-04 01:31:55 | INFO     | bot.orders | Placing order — params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.002'}
+2026-04-04 01:31:55 | INFO     | bot.client | HTTP POST /fapi/v1/order — attempt 1/3 | params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.002', 'timestamp': 1775246515562}
+2026-04-04 01:31:55 | INFO     | httpx | HTTP Request: POST https://testnet.binancefuture.com/fapi/v1/order "HTTP/1.1 200 OK"
+2026-04-04 01:31:55 | INFO     | bot.client | HTTP POST /fapi/v1/order — status=200
+2026-04-04 01:31:55 | INFO     | bot.orders | Order response — {'orderId': 13020523433, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'TkT2reQnj1ZYngza7lYSkU', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0020', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1775246516695}
+2026-04-04 01:31:55 | INFO     | bot.orders | Order placed successfully — orderId=13020523433 status=NEW
+2026-04-04 01:55:07 | INFO     | bot.logging_config | Logging initialised — file: C:\Users\paliw\Downloads\Primetrade.ai_assignment\trading_bot\bot.log
+2026-04-04 01:55:07 | INFO     | bot.validators | All inputs validated: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': Decimal('0.002'), 'price': None, 'stop_price': None}
+2026-04-04 01:55:08 | INFO     | bot.client | BinanceFuturesClient initialised — base_url=https://testnet.binancefuture.com
+2026-04-04 01:55:08 | INFO     | bot.orders | Placing order — params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.002'}
+2026-04-04 01:55:08 | INFO     | bot.client | HTTP POST /fapi/v1/order — attempt 1/3 | params={'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.002', 'timestamp': 1775247908893}
+2026-04-04 01:55:09 | INFO     | httpx | HTTP Request: POST https://testnet.binancefuture.com/fapi/v1/order "HTTP/1.1 200 OK"
+2026-04-04 01:55:09 | INFO     | bot.client | HTTP POST /fapi/v1/order — status=200
+2026-04-04 01:55:09 | INFO     | bot.orders | Order response — {'orderId': 13020537866, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'jzGdqeylSiCJxCd3SYm0DP', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0020', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1775247910036}
+2026-04-04 01:55:09 | INFO     | bot.orders | Order placed successfully — orderId=13020537866 status=NEW

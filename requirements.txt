@@ -1,0 +1,5 @@
+# Core HTTP client — async-capable, modern, type-annotated
+httpx>=0.27.0
+
+# Optional: load API keys from a .env file (remove if not needed)
+python-dotenv>=1.0.0
