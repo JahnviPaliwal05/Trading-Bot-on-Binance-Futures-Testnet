@@ -1,9 +1,4 @@
-"""
-validators.py
--------------
-Pure validation helpers.  All functions raise ValueError on bad input so the
-caller can handle errors uniformly.
-"""
+
 
 from __future__ import annotations
 
@@ -13,13 +8,13 @@ from typing import Optional
 
 logger = logging.getLogger(__name__)
 
-# ── Constants ─────────────────────────────────────────────────────────────────
+
 
 VALID_SIDES = {"BUY", "SELL"}
 VALID_ORDER_TYPES = {"MARKET", "LIMIT", "STOP_LIMIT"}
 
 
-# ── Helpers ───────────────────────────────────────────────────────────────────
+
 
 def _to_decimal(value: str | float, label: str) -> Decimal:
     """Convert *value* to Decimal or raise a descriptive ValueError."""
@@ -30,7 +25,7 @@ def _to_decimal(value: str | float, label: str) -> Decimal:
     return d
 
 
-# ── Public validators ─────────────────────────────────────────────────────────
+
 
 def validate_symbol(symbol: str) -> str:
     """
