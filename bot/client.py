@@ -1,14 +1,3 @@
-"""
-client.py
----------
-Low-level Binance Futures Testnet REST client.
-
-Responsibilities:
-  - Manage API key / secret
-  - Sign requests (HMAC-SHA256)
-  - Send HTTP requests with retry logic (bonus feature)
-  - Surface Binance API errors as clean Python exceptions
-"""
 
 from __future__ import annotations
 
@@ -23,15 +12,14 @@ import httpx
 
 logger = logging.getLogger(__name__)
 
-# ── Constants ─────────────────────────────────────────────────────────────────
+
 
 BASE_URL = "https://testnet.binancefuture.com"
-DEFAULT_TIMEOUT = 10  # seconds
-MAX_RETRIES = 3
-RETRY_BACKOFF = [1, 2, 4]  # seconds between retries
+DEFAULT_TIMEOUT = 10  
+MAX_RETRIES = 3# seconds between retries
 
 
-# ── Custom exceptions ─────────────────────────────────────────────────────────
+
 
 class BinanceAPIError(Exception):
     """Raised when the Binance API returns a non-2xx response or error payload."""
@@ -72,7 +60,7 @@ class BinanceFuturesClient:
         self._base_url = base_url.rstrip("/")
         self._timeout = timeout
 
-        # Persistent connection pool for efficiency
+        
         self._http = httpx.Client(
             base_url=self._base_url,
             timeout=self._timeout,
@@ -83,7 +71,7 @@ class BinanceFuturesClient:
         )
         logger.info("BinanceFuturesClient initialised — base_url=%s", self._base_url)
 
-    # ── Signing ───────────────────────────────────────────────────────────────
+   
 
     def _sign(self, params: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -100,7 +88,7 @@ class BinanceFuturesClient:
         params["signature"] = signature
         return params
 
-    # ── HTTP helpers ──────────────────────────────────────────────────────────
+   
 
     def _request(
         self,
@@ -177,7 +165,6 @@ class BinanceFuturesClient:
         except Exception as exc:
             raise BinanceAPIError(-1, f"Non-JSON response: {response.text}") from exc
 
-        # Binance encodes errors with a numeric `code` and `msg` field
         if isinstance(data, dict) and "code" in data and data["code"] != 200:
             code = data.get("code", -1)
             msg = data.get("msg", "Unknown error")
@@ -187,7 +174,7 @@ class BinanceFuturesClient:
         logger.debug("Response payload: %s", data)
         return data
 
-    # ── Public convenience methods ────────────────────────────────────────────
+
 
     def post(self, path: str, params: Dict[str, Any]) -> Dict[str, Any]:
         return self._request("POST", path, params)
