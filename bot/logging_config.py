@@ -1,9 +1,3 @@
-"""
-logging_config.py
------------------
-Configures application-wide logging to both console and a rotating log file.
-"""
-
 import logging
 import logging.handlers
 import os
@@ -22,11 +16,11 @@ def setup_logging(log_file: str = LOG_FILE, level: int = logging.INFO) -> None:
     Call once at application startup.
     """
     root = logging.getLogger()
-    root.setLevel(logging.DEBUG)  # capture everything; handlers filter
+    root.setLevel(logging.DEBUG)  
 
     formatter = logging.Formatter(LOG_FORMAT, datefmt=DATE_FORMAT)
 
-    # --- File handler (rotating, max 5 MB × 3 backups) ---
+    #File handler (rotating, max 5 MB × 3 backups)
     file_handler = logging.handlers.RotatingFileHandler(
         log_file,
         maxBytes=5 * 1024 * 1024,
@@ -36,7 +30,7 @@ def setup_logging(log_file: str = LOG_FILE, level: int = logging.INFO) -> None:
     file_handler.setLevel(level)
     file_handler.setFormatter(formatter)
 
-    # --- Console handler (warnings and above to keep CLI clean) ---
+
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.WARNING)
     console_handler.setFormatter(formatter)
